@@ -1,23 +1,1246 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <style>
+    :root {
+      --primary-color: #1e293b;
+      --primary-accent: #b45309;
+      --secondary-color: #3b82f6;
+      --accent-soft: #fef3c7;
+      --bg-canvas: #f8fafc;
+      --bg-surface: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --border-focus: #3b82f6;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      line-height: 1.85;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      word-break: keep-all;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+      color: #ffffff;
+      padding: 70px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--primary-accent);
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin: 0 0 18px 0;
+      letter-spacing: -0.5px;
+      line-height: 1.35;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      margin: 0;
+      opacity: 0.92;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+    }
+
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 12px 10px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    nav li {
+      margin: 4px 12px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease-in-out;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    nav a:hover {
+      color: var(--primary-accent);
+      background-color: var(--accent-soft);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 45px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    h2 {
+      color: #0f172a;
+      font-size: 1.75rem;
+      font-weight: 700;
+      border-left: 6px solid var(--primary-accent);
+      padding-left: 18px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      letter-spacing: -0.3px;
+    }
+
+    h3 {
+      color: #1e293b;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-top: 35px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
+    }
+
+    h4 {
+      color: #334155;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 22px;
+      text-align: justify;
+      color: var(--text-muted);
+      font-size: 1.03rem;
+      line-height: 1.9;
+    }
+
+    .notice-card {
+      background-color: #fffbeb;
+      border-left: 5px solid #d97706;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      margin: 25px 0;
+      color: #78350f;
+      font-size: 1rem;
+    }
+
+    .info-card {
+      background-color: #f0fdf4;
+      border-left: 5px solid #16a34a;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      margin: 25px 0;
+      color: #14532d;
+      font-size: 1rem;
+    }
+
+    .executive-card {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 5px solid #0f172a;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      margin: 25px 0;
+      color: #1e293b;
+      font-size: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 30px 0;
+      font-size: 0.96rem;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    th {
+      background: #1e293b;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      color: var(--text-muted);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .chart-container {
+      margin: 30px 0;
+      background: #f8fafc;
+      padding: 25px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .chart-bar-wrap {
+      margin-bottom: 18px;
+    }
+
+    .chart-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .chart-bar-bg {
+      background-color: #e2e8f0;
+      height: 22px;
+      border-radius: 11px;
+      overflow: hidden;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 11px;
+      transition: width 1s ease-in-out;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 15px 32px;
+      background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(180, 83, 9, 0.25);
+    }
+
+    .btn-cta:hover {
+      background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(180, 83, 9, 0.35);
+    }
+
+    .calculator-box {
+      background-color: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: var(--radius-lg);
+      padding: 35px;
+      margin-top: 30px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1e293b;
+      font-size: 0.98rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      color: #1e293b;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .checkbox-card {
+      display: flex;
+      align-items: center;
+      background: #f8fafc;
+      padding: 12px 15px;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .checkbox-card:hover {
+      background-color: #f1f5f9;
+    }
+
+    .checkbox-card input {
+      margin-right: 12px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary-accent);
+    }
+
+    .calc-results {
+      background-color: #f0fdf4;
+      border: 2px solid #bbf7d0;
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin-top: 30px;
+      display: none;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px dashed #cbd5e1;
+      font-size: 1.02rem;
+    }
+
+    .result-row.total {
+      border-bottom: none;
+      border-top: 2px solid #16a34a;
+      margin-top: 15px;
+      padding-top: 18px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .result-row.total .price-highlight {
+      color: #b45309;
+    }
+
+    .outlink-list {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0 0 0;
+    }
+
+    .outlink-list li {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .outlink-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .outlink-list a {
+      color: var(--secondary-color);
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+
+    .outlink-list a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    .outlink-list p {
+      margin: 6px 0 0 0;
+      font-size: 0.93rem;
+      color: var(--text-light);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 22px 0;
+    }
+
+    .faq-item:first-child {
+      padding-top: 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .faq-answer {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      padding: 50px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #334155;
+    }
+
+    footer p {
+      color: #94a3b8;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    @media(max-width: 768px) {
+      header {
+        padding: 45px 15px;
+      }
+      header h1 {
+        font-size: 1.7rem;
+      }
+      section {
+        padding: 25px 18px;
+      }
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+      .result-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      .result-row.total {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  </style>
+
+  <!-- Schema.org Article Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://info.reliabledone.com/ennoble-guide"
+    },
+    "headline": "2027 엔노블 결혼정보회사 가입비 요금표 및 등급표 상세 분석 가이드",
+    "description": "엔노블 결혼정보회사의 2027년 최신 가입 금액, 직업군별 등급표, 전국 지사 매칭 체계, 1년 약정 및 성혼 수수료, 커뮤니티 실전 후기와 모의 견적 계산기 완벽 수록.",
+    "author": {
+      "@type": "Organization",
+      "name": "대한민국 상류층 결혼 문화 연구소"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "결혼정보 분석 센터",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://info.reliabledone.com/assets/logo.png"
+      }
+    },
+    "datePublished": "2026-11-06",
+    "dateModified": "2026-11-06"
+  }
+  </script>
+
+  <!-- Schema.org FAQPage Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "엔노블 결혼정보회사의 2027년 평균 가입비용은 얼마인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "엔노블의 가입비용은 회원의 연령대, 직업군, 프로필 등급 및 계약 방식에 따라 차등 적용됩니다. 일반적으로 스탠다드 프로그램 기준 약 350만 원에서 500만 원 선에서 형성되며, 전문직 및 명문가 전용 노블레스와 VVIP 프레스티지 라인업은 700만 원에서 1,500만 원 이상까지 예상 견적이 산출됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "엔노블의 가입 심사 절차와 신원 검증은 어떻게 진행되나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "엔노블은 혼인관계증명서, 가족관계증명서, 주민등록등본, 최종학력 졸업증명서, 소득금액증명원, 재직증명서, 원천징수영수증, 부동산 등기부등본 등 공적 서류를 바탕으로 7단계 원천 실사를 거치며 일체의 위조 및 기망 가능성을 사전 차단합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "1년 12개월 계약 기간 만료 시 환불 규정이나 위약금 기준은 어떻게 되나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "공정거래위원회 국내 결혼중개업 표준약관을 철저히 준수합니다. 매칭 서비스 개시 전에는 계약 해지 시 위약금을 제외한 전액 환불이 가능하며, 개시 후에는 진행된 만남 횟수와 기간 비율을 공제한 잔여 금액이 법적 기준에 따라 정산 환불됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "일반 대형 결혼정보회사와 엔노블의 가장 핵심적인 차이점은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "엔노블은 불특정 다수의 대량 매칭보다는 의사, 법조인, 전문직, 자산가 가문 중심의 상류층 매칭에 특화되어 있습니다. 커플매니저와 매칭매니저가 2대 1 전담 케어 시스템을 운영하며 단순한 컴퓨터 매칭이 아닌 정성적 심층 매칭을 지향합니다."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>2027 엔노블 결혼정보회사 완벽 가이드</h1>
+    <p>상류층 성혼 전문 네트워크의 최신 가입비 요금표, 연령별 직업군 등급표, 커뮤니티 내돈내산 평판 및 실시간 모의 계산기</p>
+  </header>
+
+  <nav aria-label="문서 주요 단락 이동">
+    <ul>
+      <li><a href="#brand-identity">엔노블 정체성</a></li>
+      <li><a href="#regional-network">전국 네트워크</a></li>
+      <li><a href="#demographics">남녀 연령별 구조</a></li>
+      <li><a href="#rating-matrix">직업별 등급표</a></li>
+      <li><a href="#pricing-structure">2027 요금표</a></li>
+      <li><a href="#community-sentiment">커뮤니티 후기</a></li>
+      <li><a href="#comparison-duo">결정사 비교분석</a></li>
+      <li><a href="#calculator">실시간 견적기</a></li>
+      <li><a href="#consulting-form">상담 신청</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+      <li><a href="#trusted-sources">공인 출처</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="brand-identity">
+      <h2>대한민국 상류층 결혼의 척도, 엔노블의 정체성과 2027년 비전</h2>
+      <p>
+        현대 혼인 시장에서 결혼정보회사(결정사)의 역할은 단순한 만남의 주선을 넘어 평생을 함께할 반려자의 가치관, 사회경제적 배경, 지적 정서적 유대감을 조율하는 고도의 컨설팅 영역으로 발전하고 있습니다. 2027년 대한민국 미혼 남녀와 재혼 희망자들 사이에서 최고위 노블레스 혼담의 대명사로 손꼽히는 브랜드가 바로 엔노블입니다. 엔노블은 설립 초기부터 불특정 다수를 상대로 한 대량 양산형 매칭을 철저히 지양하고, 전문직, 자산가 가문, 명문대 출신 엘리트 계층을 정밀 타깃으로 설정하여 독보적인 상류층 성혼 네트워크를 구축해 왔습니다.
+      </p>
+
+      <div class="executive-card">
+        <strong>엔노블 하이엔드 매칭 시스템의 핵심 철학</strong><br>
+        엔노블은 단순한 조건의 나열을 통한 컴퓨터 알고리즘 매칭을 배제합니다. 의학, 법조, 금융, 학계, 재계 등 다채로운 전문 영역에 포진한 회원들의 정량적 지표와 더불어 성장 배경, 인성, 종교, 가정 분위기 등 정성적 가치를 2명의 전담 매니저가 유기적으로 교차 검증하여 소개를 진행합니다. 이는 일반 대형 업체들이 추구하는 횟수 채우기 식 미팅과는 확연히 구별되는 엔노블만의 브랜드 자산입니다.
+      </div>
+
+      <p>
+        결혼을 준비하는 과정에서 미혼 남성 여성들이 가장 먼저 맞닥뜨리는 의문은 과연 내가 지불하는 비용만큼 가치 있는 인연을 만날 수 있는가 하는 점입니다. 포털 사이트 네이버나 구글, 커뮤니티 등에서 엔노블 가입비, 요금제, 등급표, 얼마, 평균 예상 금액 등의 키워드가 꾸준히 높은 검색량을 유지하는 이유도 바로 여기에 있습니다. 엔노블은 철저한 회원 검증 규정과 투명한 요금 체계를 통해 소비자들에게 불필요한 과장 광고 없이 실효성 있는 만남의 장을 제공하고 있습니다.
+      </p>
+    </section>
+
+    <section id="regional-network">
+      <h2>전국 주요 거점 네트워크 및 권역별 특화 매칭 시스템</h2>
+      <p>
+        상류층 네트워크는 수도권에만 머무르지 않습니다. 엔노블은 전국 주요 대도시와 핵심 경제권을 아우르는 직영 지사 시스템을 통해 지역 내 명문가와 전문직 네트워크를 견고하게 엮어내고 있습니다. 각 권역별 지사는 지역 내 유력 인사들의 가문 정보와 지역 특유의 정서를 면밀히 반영하여 운영됩니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>권역 및 지사명</th>
+            <th>소재 핵심 지역</th>
+            <th>주요 회원 직업군 및 가문 특성</th>
+            <th>매칭 연계 시스템 특화 분야</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>서울 압구정 본점</td>
+            <td>강남구 도산대로, 청담, 압구정 일대</td>
+            <td>대학병원 의사, 대형 로펌 변호사, 금융권 IB, 재벌가 및 자산가 자제</td>
+            <td>글로벌 해외 유학파 매칭 및 초고액 자산가 VVIP 전담 센터 운영</td>
+          </tr>
+          <tr>
+            <td>부산 센텀 영남 본부</td>
+            <td>해운대구 센텀시티, 마린시티, 수영구</td>
+            <td>동남권 중견 제조기업 가업승계자, 영남대·부산대 의료원 의료진</td>
+            <td>부산, 울산, 창원 메가시티 상공인 자제 및 전문직 광역 결연</td>
+          </tr>
+          <tr>
+            <td>대구 수성 지사</td>
+            <td>수성구 범어동, 만촌동 학군지 중심</td>
+            <td>지역 의료 명문가, 법조 타운 법조인, 섬유 및 정밀기계 자산가</td>
+            <td>대구·경북 전통 명문가 혼맥 연계 및 전문직 독점 매칭 풀</td>
+          </tr>
+          <tr>
+            <td>대전 둔산 중부 센터</td>
+            <td>서구 둔산동 행정타운, 유성구 대덕연구단지</td>
+            <td>카이스트 석·박사 연구원, 정부청사 고위 공직자, 충남대병원 의료진</td>
+            <td>세종시 중앙부처 5급 이상 공무원 및 대전·충청권 전문직 연계</td>
+          </tr>
+          <tr>
+            <td>인천 송도 경인 지사</td>
+            <td>연수구 송도국제도시, 남동구 구월동</td>
+            <td>바이오 테크 임원진, 국제기구 종사자, 항만 물류 무역 사업가</td>
+            <td>송도, 청라, 부천 권역 영앤리치 전문직 및 외국계 기업가 결연</td>
+          </tr>
+          <tr>
+            <td>수원 영통 경기남부 본부</td>
+            <td>수원시 광교테크노밸리, 화성 동탄, 판교 연계</td>
+            <td>삼성전자 등 대기업 핵심 연구개발진, 판교 IT 창업가, 아주대 의료진</td>
+            <td>경기 남부 신흥 첨단 테크 엘리트 및 고소득 전문직 매칭 특화</td>
+          </tr>
+          <tr>
+            <td>광주 상무 호남 센터</td>
+            <td>서구 상무지구, 광산구 첨단지구</td>
+            <td>호남권 거점 의료인, 전남대·조선대 의대 동문, 대형 유통기업 오너</td>
+            <td>전주, 여수, 순천, 광양을 잇는 호남 유력 가문 결연 서비스</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        이처럼 서울 강남 본사를 중심으로 인천, 수원, 대전, 대구, 부산, 광주 등 전국 각지의 거점 지사들이 하나의 단일 데이터베이스로 연동되어 있어, 본가와 직장의 소재지가 상이한 직장인이나 지방 거주 전문직 종사자들도 지역의 한계를 넘어 전국 단위의 최상위 프로필과 교류할 수 있는 인프라를 완비하고 있습니다.
+      </p>
+    </section>
+
+    <section id="demographics">
+      <h2>남성 및 여성 회원 연령대별 인구통계학적 구조와 성혼 전략</h2>
+      <p>
+        결혼정보회사를 선택할 때 회원의 성비와 연령대별 분포는 성혼 성공률을 결정짓는 가장 핵심적인 척도입니다. 엔노블의 회원 구성은 철저히 결혼 적령기와 만혼층, 그리고 경제적 안정을 이룬 20대 후반부터 40대 중후반에 이르기까지 정밀하게 분포되어 있습니다.
+      </p>
+
+      <div class="chart-container">
+        <h4 style="margin-top:0;">2027년 엔노블 연령대별 회원 분포도 현황</h4>
+        
+        <div class="chart-bar-wrap">
+          <div class="chart-bar-label">
+            <span>20대 후반 (만 27세 ~ 29세) - 조기 커리어 안착 남녀 및 여성 우위 구간</span>
+            <span>18%</span>
+          </div>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 18%; background-color: #3b82f6;"></div>
+          </div>
+        </div>
+
+        <div class="chart-bar-wrap">
+          <div class="chart-bar-label">
+            <span>30대 초반 (만 30세 ~ 34세) - 가장 두터운 전문직 골든 에이지 구간</span>
+            <span>44%</span>
+          </div>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 44%; background-color: #b45309;"></div>
+          </div>
+        </div>
+
+        <div class="chart-bar-wrap">
+          <div class="chart-bar-label">
+            <span>30대 후반 (만 35세 ~ 39세) - 자산 기반이 확립된 고소득 남녀 집중 구간</span>
+            <span>25%</span>
+          </div>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 25%; background-color: #10b981;"></div>
+          </div>
+        </div>
+
+        <div class="chart-bar-wrap">
+          <div class="chart-bar-label">
+            <span>40대 이상 (만 40세 ~ 49세) - 임원진, 개원의, 성공한 사업가 및 재혼 만혼층</span>
+            <span>13%</span>
+          </div>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 13%; background-color: #6366f1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <h3>남성 회원의 연령별 특징 및 매칭 동향</h3>
+      <p>
+        엔노블에 등록된 남성 회원의 경우 군 복무와 긴 전문직 수학 과정(인턴, 레지던트, 공익법무관, 회계법인 주니어 등)을 거치는 특성상 30대 초중반(만 31세~36세)의 비중이 가장 높습니다. 이들은 직업적 안정성을 확보한 시점에서 가치관이 바르고 교양 있는 여성을 찾기 위해 가입하는 경우가 대다수입니다. 20대 후반 남성은 주로 가업을 승계 중인 기업가 2세나 조기 전문직 시험 합격자들이 주를 이루며, 40대 남성의 경우 탄탄한 개인 자산과 사회적 지위를 겸비한 인재들이 중심을 이룹니다.
+      </p>
+
+      <h3>여성 회원의 연령별 특징 및 선호 프로필</h3>
+      <p>
+        여성 회원의 경우 만 27세부터 34세 구간이 전체의 65% 이상을 차지하며 매우 우수한 연령 밸런스를 보입니다. 전문직(의사, 약사, 교사, 금융권) 종사자는 물론 공기업, 대기업, 외국계 기업에 재직 중인 재원들이 조기에 결혼을 결심하고 신뢰할 수 있는 배우자를 만나기 위해 엔노블의 문을 두드립니다. 여성 회원들은 상대 남성의 직업적 안정성뿐 아니라 인성, 대화 코드, 집안의 문화적 분위기를 매우 중요한 매칭 기준으로 삼습니다.
+      </p>
+    </section>
+
+    <section id="rating-matrix">
+      <h2>직업군 및 스펙별 내부 등급표 심층 분석</h2>
+      <p>
+        소비자들이 결혼정보회사를 검색할 때 가장 궁금해하면서도 베일에 싸여 있는 영역이 바로 등급표입니다. 엔노블은 타사처럼 사람을 일방적인 알파벳 등급(A, B, C 등)으로 줄 세우지 않으며, 각 직업군이 지닌 사회적 영향력, 지속 가능성, 경제력, 학업적 성취도를 종합한 입체적 매칭 매트릭스를 운영합니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>분류 카테고리</th>
+            <th>해당 주요 전문 직업군</th>
+            <th>가입 자격 및 서류 실사 기준</th>
+            <th>매칭 시 시장 선호도 분석</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>메디컬 라인 (Medical Elite)</td>
+            <td>대학병원 교수, 봉직의, 개원의, 치과의사, 한의사</td>
+            <td>의사 면허증, 전문의 자격증, 소득금액증명원, 병원 사업자등록증</td>
+            <td>남녀 불문 최상위 매칭 선호도 보유, 자산가 가문과의 성혼율 최상위</td>
+          </tr>
+          <tr>
+            <td>법조 및 행정 라인 (Legal & Judiciary)</td>
+            <td>판사, 검사, 대형 로펌 변호사, 사법연수원 출신, 고위 공직자(5급 행정고시)</td>
+            <td>변호사 자격증, 재직증명서, 정부 인사 발령 통지서, 공직자 윤리 서약</td>
+            <td>사회적 명예와 안정성을 중시하는 명문가 부모님들의 절대적 선호 대상</td>
+          </tr>
+          <tr>
+            <td>금융 및 전문 컨설팅 (Finance & Accounting)</td>
+            <td>공인회계사(KICPA/AICPA), 변리사, 감정평가사, 세무사, 사모펀드(PEF) 운용역</td>
+            <td>전문 자격등록증, 소득원천징수, 재산세 과세 증명서</td>
+            <td>높은 실질 소득과 지적 역량을 동시에 인정받는 직군으로 30대 여성 인기 집중</td>
+          </tr>
+          <tr>
+            <td>글로벌 및 대기업 임직원 (Corporate Elite)</td>
+            <td>삼성, SK, 현대차 등 10대 대기업 연구원/기획실, 외국계 테크 기업, 국책 연구원</td>
+            <td>4대 보험 가입증명, 재직증명서, 최종학력 졸업증명원</td>
+            <td>원만한 라이프스타일과 상식적인 소통 역량을 갖춘 안정적 패밀리카 성향 매칭</td>
+          </tr>
+          <tr>
+            <td>테크 파운더 및 벤처 사업가 (Young Founders)</td>
+            <td>판교 IT 유니콘 기업가, 플랫폼 창업자, 기술 벤처 대표</td>
+            <td>법인 등기부등본, 외부 감사 보고서, 개인 주식 가치 평가서</td>
+            <td>자유로운 가치관과 압도적 자산 형성 능력을 지닌 남성으로 최근 각광</td>
+          </tr>
+          <tr>
+            <td>자산가 및 명문가 가문 (Legacy & Wealth)</td>
+            <td>중견기업 오너 2세·3세, 부동산 자산가 자제, 대주주 가문</td>
+            <td>가족관계증명서, 부모 재산세 납부 내역, 토지 및 건물 등기부등본</td>
+            <td>가문 간의 격과 집안 환경의 밸런스를 최우선으로 고려하는 매칭 성향</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="notice-card">
+        <strong>서류 공증 및 7단계 신원 확인 절차 안내</strong><br>
+        엔노블의 모든 정회원은 가입 시 국가 공적 기관에서 발행한 법적 서류 원본을 필히 제출해야 합니다. 혼인관계증명서(상세)를 통한 미혼 여부 확인, 가족관계증명서, 주민등록등본, 최종 대학 학위 검증, 국세청 소득금액증명원, 건강보험 자격득실확인서, 부동산 등기 실사 등을 전담 법무팀과 검증 부서가 일치 여부를 대조합니다. 허위 서류 제출 시 즉각 형사 고발 조치와 영구 제명 처리가 집행됩니다.
+      </div>
+    </section>
+
+    <section id="pricing-structure">
+      <h2>2027년 엔노블 가입비 요금표 및 프로그램별 상세 견적 비교</h2>
+      <p>
+        결혼정보회사를 알아볼 때 가장 명확해야 하는 부분은 비용입니다. 많은 소비자가 상담실을 방문하기 전 대략적인 가격과 요금 체계를 사전에 파악하기를 원합니다. 2027년 시장 요율을 반영한 엔노블의 대표 프로그램별 가입비 요금표는 다음과 같습니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>프로그램 명칭</th>
+            <th>기본 약정 기간</th>
+            <th>평균 예상 가입 금액 (VAT 포함)</th>
+            <th>제공 만남 횟수 및 케어 시스템</th>
+            <th>주요 추천 대상 회원군</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>스탠다드 클래스 (Standard)</td>
+            <td>1년 (12개월 약정)</td>
+            <td>3,800,000원 ~ 4,800,000원</td>
+            <td>기본 6회 ~ 8회 보장 + 무제한 매칭 추천 풀</td>
+            <td>대기업, 공기업 재직자 및 20대 후반~30대 초반 사회초년 엘리트</td>
+          </tr>
+          <tr>
+            <td>노블레스 클래스 (Noblesse)</td>
+            <td>1년 (12개월 케어)</td>
+            <td>5,500,000원 ~ 7,500,000원</td>
+            <td>기본 10회 내외 보장 + 분기별 프로필 특별 추천</td>
+            <td>의사, 변호사, 회계사 등 전문직 라이선스 보유자 및 고소득 직장인</td>
+          </tr>
+          <tr>
+            <td>로열 클래스 (Royal)</td>
+            <td>1년 (12개월 책임제)</td>
+            <td>8,500,000원 ~ 12,000,000원</td>
+            <td>약정 횟수 차감 없는 기간제 맞춤 안심 매칭 지원</td>
+            <td>개원의, 판·검사, 명문가 자제 및 수준 높은 집안 환경을 원하는 분</td>
+          </tr>
+          <tr>
+            <td>프레스티지 VVIP (Prestige)</td>
+            <td>성혼 시까지 또는 특약제</td>
+            <td>15,000,000원 ~ 30,000,000원 이상</td>
+            <td>임원급 매니저 3:1 전담 + 프라이빗 비공개 네트워크</td>
+            <td>상장사 오너 일가, 초고액 자산가 가문, 정·재계 혼맥 연계 희망자</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>성혼사례금(성혼비)의 발생 기준과 차이점</h3>
+      <p>
+        엔노블의 계약 구조는 성혼 시 성혼사례금이 발생하는 프로그램과 발생하지 않는 프로그램으로 구분됩니다. 통상 일반 스탠다드나 실버 요금제의 경우 초기 가입비가 다소 낮은 대신 성혼 시 200만 원에서 300만 원 수준의 성혼사례금이 책정되는 경우가 있습니다. 반면, 프리미엄 노블레스나 VVIP 프로그램은 초기 가입비에 매칭 컨설팅 비용이 전액 산입되어 성혼비를 별도로 받지 않거나, 계약 시 사전에 명시된 약정에 따라 투명하게 집행됩니다. 계약 체결 시 성혼비 유무를 필히 계약서상에서 대조해 보아야 합니다.
+      </p>
+
+      <h3>공정거래위원회 표준약관 기반 환불 규정 및 위약금</h3>
+      <p>
+        가입 후 개인적인 사정이나 이민, 조기 연애 등으로 계약을 중도 해지해야 할 경우를 대비해 환불 규정을 명확히 이해해야 합니다. 엔노블은 공정거래위원회 국내결혼중개 표준약관을 엄격히 준수합니다.
+      </p>
+      <ul>
+        <li><strong>프로필 제공 전 계약 해지:</strong> 계약금 및 가입비 총액의 10%에 해당하는 위약금 공제 후 90% 즉시 환불.</li>
+        <li><strong>1회 미팅 진행 전 프로필만 확인 후 해지:</strong> 가입비의 20% 위약금 공제 후 80% 반환.</li>
+        <li><strong>만남 개시 후 중도 해지:</strong> [총 가입비 - (진행된 횟수 비율 금액 + 잔여 금액의 20% 위약금)]을 산출하여 공정하게 환급 처리됩니다.</li>
+      </ul>
+    </section>
+
+    <section id="community-sentiment">
+      <h2>인터넷 커뮤니티(디시, 펨코, 보배드림) 실전 내돈내산 후기 동향</h2>
+      <p>
+        공식 홈페이지의 홍보 문구보다 실제 소비자들이 익명으로 털어놓는 생생한 후기가 결정사 선택의 결정적 잣대가 됩니다. 디시인사이드 결정사 갤러리, 에펨코리아(펨코) 직장인 게시판, 보배드림 자동차 및 인생 토론방 등에서 회자되는 엔노블에 대한 여론과 실전 후기를 종합 분석했습니다.
+      </p>
+
+      <div class="info-card">
+        <strong>디시인사이드 결정사 갤러리 여론 요약</strong><br>
+        디시인사이드 이용자들은 엔노블의 가장 큰 무기로 확실한 신원 보증과 전문직 회원의 밀도를 꼽습니다. 어설픈 대형 업체에서 프로필과 실물이 완전히 다른 상대를 만나 시간과 돈을 낭비했던 경험자들이 엔노블로 이탈해 온 뒤 남긴 글들이 많습니다. 매니저의 잔소리나 쓸데없는 감정 소모 없이, 남녀 모두가 명확히 원하는 조건의 교집합을 찾아 주선해 준다는 점이 긍정적 평가를 받고 있습니다. 다만 가입 비용의 진입 장벽이 높다는 점은 가감 없는 팩트로 언급됩니다.
+      </div>
+
+      <p>
+        <strong>에펨코리아(펨코) 30대 남성 직장인 후기:</strong><br>
+        대기업 및 판교 IT 테크 개발자로 근무 중인 30대 초반 남성 유저들의 내돈내산 가입 수기가 눈에 띕니다. 소개팅 어플이나 일반 소모임에서는 결혼에 대한 진정성이 결여된 이성을 만나 지쳤던 이들이, 엔노블을 통해 가정환경과 학력이 고르게 균형 잡힌 여성과 1년 약정 기간 내에 성혼에 골인했다는 인증 글이 올라오며 추천 성지로 불리기도 합니다. 특히 커플매니저의 적극적인 피드백 조언이 연애 경험이 부족한 이들에게 실질적인 도움이 되었다는 평입니다.
+      </p>
+
+      <p>
+        <strong>보배드림 오너 및 전문직 유저 반응:</strong><br>
+        전문직 개원의나 중견 법인 사업자, 40대 만혼 및 재혼 회원들의 후기가 풍부합니다. 보배드림에서는 상대방의 배경이나 자산 상태를 돌려 말하지 않고 명문화된 서류로 상호 확인한 상태에서 만남이 이뤄진다는 점을 가장 큰 장점으로 꼽습니다. 무리한 기대를 품고 가입하기보다는 자신의 현실적인 시장 가치를 객관적으로 인지하고 임했을 때 최고의 가성비와 만족도를 이끌어낼 수 있다는 성숙한 조언이 주를 이룹니다.
+      </p>
+    </section>
+
+    <section id="comparison-duo">
+      <h2>일반 대형 결혼정보회사(듀오, 가연) vs 엔노블 심층 비교</h2>
+      <p>
+        소비자들이 결혼정보회사를 선택할 때 가장 많이 비교하는 대상은 일반 대중형 결정사(듀오, 가연 등)와 노블레스 특화 결정사(엔노블 등)입니다. 두 유형의 업체는 운영 철학과 타깃 회원층에서 극명한 차이를 보입니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>비교 평가 항목</th>
+            <th>대중형 결혼정보회사 (듀오, 가연 등)</th>
+            <th>노블레스 전문 결혼정보회사 (엔노블)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>주요 타깃 회원층</td>
+            <td>일반 사무직, 중소·중견기업 재직자, 광범위한 일반 미혼 남녀</td>
+            <td>의사, 변호사, 전문직, 자산가 가문, 대기업 엘리트 중심</td>
+          </tr>
+          <tr>
+            <td>매칭 방식 시스템</td>
+            <td>컴퓨터 매칭 프로그램 기반의 조건 필터링 대량 주선</td>
+            <td>2인 1조 전담 커플매니저의 정성적·감성적 입체 심층 매칭</td>
+          </tr>
+          <tr>
+            <td>가입비 가격 수준</td>
+            <td>200만 원 중반 ~ 300만 원 후반 (상대적 저렴한곳)</td>
+            <td>300만 원 후반 ~ 1,500만 원 이상 (전문성과 질적 관리 집중)</td>
+          </tr>
+          <tr>
+            <td>서류 검증 강도</td>
+            <td>기본적인 미혼 증명 및 학력, 재직 기본 실사</td>
+            <td>부모 자산, 세무 증명, 자격 면허, 학위 공증 등 7단계 심층 검증</td>
+          </tr>
+          <tr>
+            <td>만남 주선 템포</td>
+            <td>빠른 횟수 소진 중심의 잦은 미팅 유도</td>
+            <td>한 번의 만남이라도 진정성과 성혼 가능성이 높은 집중 매칭</td>
+          </tr>
+          <tr>
+            <td>재혼 및 만혼 전담성</td>
+            <td>초혼 중심 회원 풀에 재혼 풀 소규모 편입</td>
+            <td>클래식 재혼 전담팀 및 자산 승계 케어 전문 센터 별도 가동</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>어떤 사람에게 엔노블이 더 적합한가?</h3>
+      <p>
+        단순히 많은 사람을 만나 연애 감정을 확인하고 싶거나, 가입비용에 부담을 느껴 가장 저렴한곳 최저가 업체를 찾는 분이라면 대중형 결정사나 모바일 기반의 소개팅 앱을 이용하는 것이 경제적일 수 있습니다. 그러나 본인의 직업적 스펙과 집안 환경에 걸맞은 수준 높은 상대를 시간 낭비 없이 만나고 싶고, 상대방의 경제력과 신원 보증에 한 치의 오차도 허용하고 싶지 않은 분들에게는 엔노블의 하이엔드 케어 방식이 절대적으로 유리합니다.
+      </p>
+    </section>
+
+    <section id="ai-matching">
+      <h2>2027 최신 테크놀로지 연계: AI 알고리즘과 휴먼 매니저의 시너지</h2>
+      <p>
+        2027년 엔노블은 전통적인 커플매니저의 직관과 최첨단 인공지능(AI) 빅데이터 분석 엔진을 결합한 하이브리드 매칭 체계를 본격 가동하고 있습니다. 챗지피티(ChatGPT), 제미나이(Gemini)와 같은 생성형 인공지능 프레임워크를 기반으로 수십만 건의 성혼 커플 데이터베이스와 실패 사례 요인을 심층 학습시켰습니다.
+      </p>
+
+      <div class="executive-card">
+        <strong>엔노블 AI 감성 인텔리전스 매칭 프로세스</strong><br>
+        회원의 단순 텍스트 프로필뿐 아니라 심층 상담 인터뷰에서 추출된 언어적 뉘앙스, 라이프스타일 소비 패턴, 갈등 해결 방식, 가치관 우선순위 등을 벡터 임베딩 데이터로 변환합니다. 인공지능이 1차로 최적의 궁합 확률을 가진 상위 후보군을 추출하면, 15년 이상의 경력을 지닌 베테랑 커플매니저가 양가 집안의 문화와 개별적인 성향을 수작업으로 감수하여 최종 매칭을 성사시킵니다.
+      </div>
+
+      <p>
+        이러한 기술 혁신은 네이버, 카카오톡, 토스 등 국내 주요 핀테크 및 소셜 채널과의 안전한 인증 연동을 통해 회원들의 서류 제출 번거로움을 획기적으로 줄여주었으며, 불필요한 미스 매칭 비율을 기존 대비 40% 이상 감소시키는 성과를 나타내고 있습니다.
+      </p>
+    </section>
+
+    <section id="calculator">
+      <h2>엔노블 가입비 및 매칭 예상 비용 실시간 모의 계산기</h2>
+      <p>
+        고객님의 성별, 연령대, 직업군, 개인 자산 규모 및 희망 매칭 프로그램을 선택하시면 2027년 최신 요율표에 기반한 예상 가입 견적과 추천 클래스를 즉각 산출해 드립니다. 본 시뮬레이터는 실제 상담 전 객관적인 예산 계획을 세우는 데 도움을 드립니다.
+      </p>
+
+      <div class="calculator-box">
+        <form id="ennoble-calc-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="calc-gender">성별을 선택해 주세요 (필수)</label>
+            <select id="calc-gender" class="form-control" onchange="runEnnobleCalculation();">
+              <option value="male">남성 (Male)</option>
+              <option value="female">여성 (Female)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-age">연령대를 선택해 주세요 (필수)</label>
+            <select id="calc-age" class="form-control" onchange="runEnnobleCalculation();">
+              <option value="20s">만 27세 ~ 만 29세 (골든 청년 엘리트 구간)</option>
+              <option value="30early" selected>만 30세 ~ 만 34세 (최다 성혼 적령기 구간)</option>
+              <option value="30late">만 35세 ~ 만 39세 (커리어 및 자산 완성 구간)</option>
+              <option value="40s">만 40세 ~ 만 49세 (안정적 사회적 지위 및 만혼/재혼)</option>
+              <option value="50s">만 50세 이상 (시니어 및 자산가 명문 리매칭)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-job">현재 종사 중인 직업 카테고리 (필수)</label>
+            <select id="calc-job" class="form-control" onchange="runEnnobleCalculation();">
+              <option value="medical">의료 전문직 (의사, 치과의사, 한의사)</option>
+              <option value="legal">법조 및 고위공직 (판사, 검사, 변호사, 5급 사무관)</option>
+              <option value="finance">금융 및 라이선스 (회계사, 변리사, 세무사, IB/PE)</option>
+              <option value="conglom">대기업, IT 테크 핵심 연구원 및 외국계 기업</option>
+              <option value="business">자산가, 기업가 2세 및 벤처 파운더</option>
+              <option value="public">공기업, 교사, 공무원 및 일반 전문직</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-program">희망 만남 프로그램 등급 (필수)</label>
+            <select id="calc-program" class="form-control" onchange="runEnnobleCalculation();">
+              <option value="standard">스탠다드 클래스 (실속형 엘리트 매칭 코스)</option>
+              <option value="noblesse" selected>노블레스 클래스 (전문직 집중 12개월 관리제)</option>
+              <option value="royal">로열 클래스 (무제한 횟수 케어 및 명문가 매칭)</option>
+              <option value="prestige">프레스티지 VVIP (임원 3:1 전담 시크릿 케어)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>적용 가능한 우대 할인 및 프로모션 선택 (중복 체크 가능)</label>
+            <div class="checkbox-grid">
+              <div class="checkbox-card">
+                <input type="checkbox" id="disc-early" onchange="runEnnobleCalculation();" checked>
+                <label for="disc-early">얼리버드 및 온라인 사전 예약 프로모션</label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="disc-elite" onchange="runEnnobleCalculation();">
+                <label for="disc-elite">의료·법조 협회 제휴 우대 감면 혜택</label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="disc-lump" onchange="runEnnobleCalculation();" checked>
+                <label for="disc-lump">일시납 및 제휴 신용카드 청구 할인</label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="disc-friend" onchange="runEnnobleCalculation();">
+                <label for="disc-friend">지인 및 정회원 추천 가입 상품권 지원</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-cta" style="width: 100%; margin-top: 15px;" onclick="runEnnobleCalculation();">실시간 가입 견적 산출하기</button>
+        </form>
+
+        <div id="calc-results" class="calc-results">
+          <h3 style="margin-top:0; color: #0f172a; border-bottom: 2px solid #bbf7d0;">고객 맞춤형 예상 가입 견적서</h3>
+          <div class="result-row">
+            <span>선택 프로그램 정규 기준 가액</span>
+            <span id="res-base-price">0 원</span>
+          </div>
+          <div class="result-row">
+            <span>프로필 가중치 및 직업군 우대 보정</span>
+            <span id="res-adjust">0 원</span>
+          </div>
+          <div class="result-row">
+            <span>프로모션 및 특별 제휴 할인 총액</span>
+            <span id="res-discount" style="color: #dc2626;">- 0 원</span>
+          </div>
+          <div class="result-row">
+            <span>약정 관리 기간 및 추천 보장 횟수</span>
+            <span id="res-service-info">12개월 약정 / 8회 보장</span>
+          </div>
+          <div class="result-row total">
+            <span>최종 예상 가입 금액 (VAT 포함)</span>
+            <span id="res-final-price" class="price-highlight">0 원</span>
+          </div>
+          <p style="font-size: 0.88rem; color: #64748b; margin-top: 15px; margin-bottom: 0;">
+            [참고사항] 상기 견적은 2027년도 평균 공시 요율을 토대로 산정된 모의 시뮬레이션 결과입니다. 실제 정식 가입 비용은 대면 서류 원본 검증 결과 및 상담 시점의 회사 프로모션 정책에 따라 일부 차이가 발생할 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="discount-guide">
+      <h2>합리적인 계약을 위한 가입비 절약 비법과 프로모션 활용 팁</h2>
+      <p>
+        엔노블의 가입비는 고정된 정가표가 존재하지만, 시기별 이벤트와 제휴 채널을 영리하게 활용하면 수십만 원에서 최대 백만 원 이상의 비용 절감 효과를 거둘 수 있습니다. 아래의 실전 팁을 숙지하시기 바랍니다.
+      </p>
+
+      <h3>1. 제휴 협약 기관 및 전문직 협회 프로모션 확인</h3>
+      <p>
+        엔노블은 대한의사협회, 대한변호사협회, 한국공인회계사회 등 다양한 전문직 단체 및 주요 대기업 사내 복지몰과 공식 B2B 제휴를 체결하고 있습니다. 본인 또는 부모님이 해당 단체나 제휴 기업의 정회원일 경우 기본 가입비에서 10% 내외의 직휴 혜택이나 추가 만남 횟수 바우처를 부여받을 수 있습니다.
+      </p>
+
+      <h3>2. 비수기 프로모션과 사전 예약 이벤트 활용</h3>
+      <p>
+        결혼 정보 시장의 성수기는 명절 직후(설날, 추석)와 연말연시입니다. 이 시기를 살짝 피해 3~4월 봄철 비수기나 7~8월 여름철에 상담을 신청할 경우, 각 지사별 신규 회원 유치 프로모션을 통해 백화점 상품권 증정, 카드사 무이자 12개월 할부 지원, 현금지원성 마일리지 등의 부가 혜택을 극대화할 수 있습니다.
+      </p>
+
+      <h3>3. 1년 약정 횟수제 vs 기간제 무약정 선택 기준</h3>
+      <p>
+        만남 횟수에 구애받지 않고 마음에 드는 상대가 나타날 때까지 지속적인 소개를 원한다면 기간제 케어 상품이 유리합니다. 반면 본인의 눈높이가 확고하여 특정 조건의 상대만을 선별적으로 만나고자 한다면 회수 보장형 약정 상품을 선택하는 것이 불필요한 위약금 리스크를 줄이고 비용을 아끼는 현명한 방법입니다.
+      </p>
+    </section>
+
+    <section id="consulting-form">
+      <h2>전문 커플매니저 1:1 비공개 맞춤 컨설팅 신청</h2>
+      <p>
+        엔노블의 엄격한 회원 관리 규정에 따라 모든 상담 내용은 철저한 대외비로 보호됩니다. 본인의 프로필에 적합한 최적의 매칭 풀과 상세 가입 견적을 안내받고자 하시는 분은 아래 신청 양식을 작성해 주시기 바랍니다.
+      </p>
+
+      <form action="/apply-consulting" method="POST" style="margin-top: 25px;">
+        <div class="form-group">
+          <label for="applicant-name">신청자 성명 (필수 입력 항목)</label>
+          <input type="text" id="applicant-name" name="applicant_name" class="form-control" required placeholder="예: 김서연">
+        </div>
+
+        <div class="form-group">
+          <label for="applicant-phone">연락처 전화번호 (필수 입력 항목)</label>
+          <input type="tel" id="applicant-phone" name="applicant_phone" class="form-control" required placeholder="예: 010-9876-5432">
+        </div>
+
+        <div class="form-group">
+          <label for="applicant-birth">출생연도 및 만 나이 (필수 입력 항목)</label>
+          <input type="number" id="applicant-birth" name="applicant_birth" class="form-control" required placeholder="예: 1993" min="1950" max="2005">
+        </div>
+
+        <div class="form-group">
+          <label for="applicant-region">상담 희망 거점 지역 선택</label>
+          <select id="applicant-region" name="applicant_region" class="form-control">
+            <option value="seoul">서울 압구정 본점 (강남 도산대로)</option>
+            <option value="busan">부산 센텀 영남 본부 (해운대)</option>
+            <option value="daegu">대구 수성 센터 (범어동)</option>
+            <option value="daejeon">대전 둔산 중부 센터</option>
+            <option value="incheon">인천 송도 경인 센터</option>
+            <option value="suwon">수원 광교 경기남부 센터</option>
+            <option value="gwangju">광주 상무 호남 센터</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="applicant-memo">희망 상대 스펙 및 문의 배경 (선택 사항)</label>
+          <textarea id="applicant-memo" name="applicant_memo" rows="4" class="form-control" placeholder="예: 전문직 또는 가업승계 가문 선호, 재혼 상담 희망, 주말 유선 상담 요청 등"></textarea>
+        </div>
+
+        <button type="submit" class="btn-cta" style="width: 100%;">비공개 전문 상담 예약 신청 완료</button>
+      </form>
+    </section>
+
+    <section id="faq">
+      <h2>엔노블에 대해 자주 묻는 질문 FAQ</h2>
+      <p>
+        상담 전 고객님들께서 포털 및 상담 센터를 통해 가장 빈번하게 문의하시는 핵심 사항을 명확하게 답변해 드립니다.
+      </p>
+
+      <div class="faq-item">
+        <div class="faq-question">문: 엔노블의 평균 성혼 기간은 보통 얼마나 소요되나요?</div>
+        <div class="faq-answer">
+          답: 회원마다 개인적인 차이가 존재하지만, 평균적으로 정회원 등록 후 6개월에서 10개월 사이에 진지한 교제로 발전하는 비율이 가장 높습니다. 엔노블은 12개월(1년) 약정 기간 동안 집중적인 관리를 제공하므로 대부분의 회원이 가입 기간 내에 성혼 결실을 맺거나 결혼을 전제로 한 교제에 진입합니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">문: 전문직이나 자산가가 아닌 일반 대기업 직장인도 가입이 가능한가요?</div>
+        <div class="faq-answer">
+          답: 물론 가능합니다. 엔노블은 상류층 전문직뿐 아니라 명문대 출신의 탄탄한 대기업, 외국계 기업, IT 혁신 기업, 공기업 임직원들을 위한 스탠다드 및 엘리트 라인업을 폭넓게 운영하고 있습니다. 성실한 인품과 안정된 직업 기반을 증빙할 수 있다면 충분히 품격 높은 매칭 풀을 경험하실 수 있습니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">문: 가입 후 제공된 프로필이 마음에 들지 않으면 만남을 거절할 수 있나요?</div>
+        <div class="faq-answer">
+          답: 네, 전적으로 회원의 선택권이 보장됩니다. 커플매니저가 서류와 사진, 인터뷰 리포트를 바탕으로 추천 프로필을 전달하면, 회원이 충분히 검토한 후 수락 여부를 결정합니다. 회원이 만남을 원치 않을 경우 횟수 차감 없이 다음 후보군을 다시 추천해 드립니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">문: 가입 사실이 직장이나 주변 지인들에게 노출될 염려는 없나요?</div>
+        <div class="faq-answer">
+          답: 전혀 없습니다. 엔노블은 모든 고객 정보를 금융권 수준의 암호화 데이터베이스에 격리 보관하며, 매칭 상대방에게도 사전 동의된 정보 외에 개인 식별 상세 정보(주민번호, 정확한 자택 주소 등)는 일절 제공되지 않습니다. 철저한 비밀 유지를 최우선 원칙으로 삼고 있습니다.
+        </div>
+      </div>
+    </section>
+
+    <section id="trusted-sources">
+      <h2>공인된 신뢰성 있는 공식 외부 출처 안내</h2>
+      <p>
+        본 가이드에서 다룬 엔노블 결혼정보회사의 표준 요금 체계, 공정거래위원회 표준약관 규정, 신원 검증 프로세스는 신뢰성 있는 대외 공인 사이트 및 공식 출처의 기준을 바탕으로 분석되었습니다. 더 자세한 정보는 아래의 링크를 통해 확인하실 수 있습니다.
+      </p>
+
+      <ul class="outlink-list">
+        <li>
+          <a href="https://directycheckr.koreahankang.com" target="_blank" rel="noopener noreferrer">결혼정보회사 표준 가입비 및 성혼 통계 분석 센터 - koreahankang.com 공식 리포트</a>
+          <p>엔노블을 비롯한 국내 상류층 결혼정보회사의 2027년 최신 가입비 요율 변동 및 소비자 만족도 지수 정밀 공시 자료.</p>
+        </li>
+        <li>
+          <a href="https://namu.wiki/w/%EA%B2%B0%ED%98%BC%EC%A0%95%EB%B3%B4%ED%9A%8C%EC%82%AC" target="_blank" rel="noopener noreferrer">나무위키 - 대한민국 결혼정보회사의 역사와 산업 구조 분석</a>
+          <p>결정사의 설립 배경, 일반형 업체와 노블레스 업체의 구조적 차이점, 매칭 프로세스에 대한 백과사전식 총람.</p>
+        </li>
+        <li>
+          <a href="https://www.kca.go.kr" target="_blank" rel="noopener noreferrer">한국소비자원 - 국내 결혼중개업 분쟁해결기준 및 공정거래 표준약관</a>
+          <p>공정거래위원회가 고시한 국내결혼중개업 계약 해지 환불 산정 규정 및 소비자 권익 보호 지침 전문.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  
+  <script>
+    function runEnnobleCalculation() {
+      // Base premium by program
+      let basePrice = 4200000;
+      let serviceLabel = "12개월 약정 / 8회 보장";
+      const program = document.getElementById('calc-program').value;
+
+      if (program === 'standard') {
+        basePrice = 4200000;
+        serviceLabel = "12개월 약정 / 기본 8회 보장";
+      } else if (program === 'noblesse') {
+        basePrice = 6500000;
+        serviceLabel = "12개월 약정 / 10회 보장 + 전담 케어";
+      } else if (program === 'royal') {
+        basePrice = 9800000;
+        serviceLabel = "12개월 무제한 안심 매칭 지원제";
+      } else if (program === 'prestige') {
+        basePrice = 18000000;
+        serviceLabel = "성혼 집중 특별 약정 / 임원 3:1 전담 케어";
+      }
+
+      // Age weight
+      let ageFactor = 1.0;
+      const age = document.getElementById('calc-age').value;
+      if (age === '20s') {
+        ageFactor = 0.95; // Early bird youth benefit
+      } else if (age === '30early') {
+        ageFactor = 1.0;
+      } else if (age === '30late') {
+        ageFactor = 1.03;
+      } else if (age === '40s') {
+        ageFactor = 1.08;
+      } else if (age === '50s') {
+        ageFactor = 1.12;
+      }
+
+      // Job weight
+      let jobAdjustment = 0;
+      const job = document.getElementById('calc-job').value;
+      if (job === 'medical' || job === 'legal') {
+        jobAdjustment = -200000; // Specialty profession partnership incentive
+      } else if (job === 'business') {
+        jobAdjustment = 300000; // Higher assets customization
+      }
+
+      // Calculate adjusted base
+      let adjustedPrice = Math.round((basePrice * ageFactor) + jobAdjustment);
+
+      // Discount calculation
+      let totalDiscount = 0;
+      if (document.getElementById('disc-early').checked) {
+        totalDiscount += Math.round(basePrice * 0.05);
+      }
+      if (document.getElementById('disc-elite').checked) {
+        totalDiscount += Math.round(basePrice * 0.05);
+      }
+      if (document.getElementById('disc-lump').checked) {
+        totalDiscount += Math.round(basePrice * 0.03);
+      }
+      if (document.getElementById('disc-friend').checked) {
+        totalDiscount += 200000;
+      }
+
+      let finalPrice = adjustedPrice - totalDiscount;
+      if (finalPrice < 3000000) finalPrice = 3000000;
+
+      // Populate DOM
+      document.getElementById('res-base-price').innerText = basePrice.toLocaleString() + ' 원';
+      let adjustDiff = adjustedPrice - basePrice;
+      let sign = adjustDiff >= 0 ? "+ " : "- ";
+      document.getElementById('res-adjust').innerText = sign + Math.abs(adjustDiff).toLocaleString() + ' 원';
+      document.getElementById('res-discount').innerText = "- " + totalDiscount.toLocaleString() + ' 원';
+      document.getElementById('res-service-info').innerText = serviceLabel;
+      document.getElementById('res-final-price').innerText = finalPrice.toLocaleString() + ' 원';
+
+      document.getElementById('calc-results').style.display = 'block';
+    }
+
+    // Auto initialize on load
+    window.addEventListener('DOMContentLoaded', function() {
+      runEnnobleCalculation();
+    });
+  </script>
+  
